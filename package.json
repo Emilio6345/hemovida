@@ -1,0 +1,26 @@
+{
+  "name": "desarrollo-web-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "express.js",
+  "type": "module",
+  "scripts": {
+    "start": "node express.js",
+    "dev": "node express.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/genai": "^2.8.0",
+    "@google/generative-ai": "^0.24.1",
+    "@huggingface/inference": "^4.13.18",
+    "axios": "^1.17.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.22.3"
+  }
+}
