@@ -36,4 +36,13 @@ const pool = mysql.createPool({
   queueLimit: 0
 });
 
+pool.getConnection()
+  .then(conn => {
+    console.log("✅ CONECTADO A RAILWAY");
+    conn.release();
+  })
+  .catch(err => {
+    console.log("❌ ERROR MYSQL:", err);
+  });
+  
 export default pool;
