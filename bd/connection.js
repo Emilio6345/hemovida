@@ -10,10 +10,12 @@ const __dirname = path.dirname(__filename);
 const envPath = path.resolve(__dirname, "../.env");
 
 // cargar variables
-dotenv.config({ path: envPath });
+dotenv.config();
 
-// DEBUG (para que veas si cargó o no)
+// DEBUG
 console.log("📌 ENV PATH:", envPath);
+console.log("📌 DB_HOST:", process.env.DB_HOST);
+console.log("📌 DB_PORT:", process.env.DB_PORT);
 console.log("📌 DB_USER:", process.env.DB_USER);
 console.log("📌 DB_NAME:", process.env.DB_NAME);
 
@@ -25,9 +27,13 @@ if (!process.env.DB_USER) {
 // pool de conexión
 const pool = mysql.createPool({
   host: process.env.DB_HOST,
+  port: process.env.DB_PORT || 3306,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME
+  database: process.env.DB_NAME,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
 });
 
 export default pool;
