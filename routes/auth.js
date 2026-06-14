@@ -71,6 +71,22 @@ router.post("/login", async (req, res) => {
 
     const match = await bcrypt.compare(password, usuario.password);
 
+    const [rows] = await pool.query(
+  "SELECT * FROM usuarios WHERE email = ?",
+  [email]
+);
+
+console.log("USUARIO ENCONTRADO:", rows[0]);
+
+const usuario = rows[0];
+
+const match = await bcrypt.compare(
+  password,
+  usuario.password
+);
+
+console.log("MATCH PASSWORD:", match);
+
     if (!match) {
       return res.status(401).json({
         error: "Password incorrecta"
