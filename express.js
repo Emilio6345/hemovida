@@ -10,7 +10,7 @@ import categoriaRoutes from "./routes/categoria.js";
 import pedidoRoutes from "./routes/pedido.js";
 import botRoutes from "./routes/bot.js";
 
-console.log("API:", process.env.GEMINI_API_KEY);
+console.log("GROQ:", !!process.env.GROQ_API_KEY);
 
 const app = express();
 
@@ -23,11 +23,11 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors({
 
-    origin: [
-        "http://localhost:5173",
-        "http://localhost:5174"
-    ],
-
+   origin: [
+    "http://localhost:5173",
+    "http://localhost:5174",
+    "https://hemovida-frontend-clx1ugium-emilio-lopez-projects.vercel.app"
+],
     methods: ["GET", "POST", "PUT", "DELETE"],
 
     allowedHeaders: [
