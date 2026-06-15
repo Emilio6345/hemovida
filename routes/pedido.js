@@ -16,11 +16,7 @@ const router = Router();
 // =========================
 // PEDIDOS
 // =========================
-router.get(
-  "/",
-  verifyToken,
-  obtenerPedidos
-);
+router.get("/", obtenerPedidos);
 
 // DETALLE DEL PEDIDO
 router.get("/detalle/:pedido_id", obtenerDetallePorPedido);
